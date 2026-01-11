@@ -45,7 +45,7 @@ It explores sales behavior over time and compares **classical statistical models
 ```text
 Project_Folder/
 │
-├── main_script.R          # The R code provided
+├── Code_v1.R         # The R code provided
 ├── pics/                  # Folder where all plots are saved (created automatically)
 └── data/                  # Source data files
     ├── train.csv
