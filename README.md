@@ -42,35 +42,24 @@ It explores sales behavior over time and compares **classical statistical models
 
 ## 📂 Project Structure
 
-Statistical-Sales-Forecasting-Model/
+```text
+Project_Folder/
 │
-├── Code_v1.R # Main analysis and modeling script
-├── README.md
-├── plot_pres.png
-│
-├── data/
-│ ├── holidays_events.csv
-│ ├── oil.csv
-│ ├── sample_submission.csv
-│ ├── stores.csv
-│ ├── test.csv
-│ └── transactions.csv
-│
-└── pics/
-├── Average sales.png
-├── Daily Sales by city.png
-├── Daily sales.png
-├── Impact of oil price.png
-├── Influence of promotion on daily sales.png
-├── Time series cross validation plan.png
-├── seasonal decomposition of times series by loss.png
-└── sales.png
+├── main_script.R          # The R code provided
+├── pics/                  # Folder where all plots are saved (created automatically)
+└── data/                  # Source data files
+    ├── train.csv
+    ├── test.csv
+    ├── oil.csv
+    ├── holidays_events.csv
+    ├── stores.csv
+    └── transactions.csv
 
 
 > ⚠️ **Note:**  
 > The training dataset (`train.csv`) is excluded from the repository due to GitHub file size limits.
 
----
+```
 
 ## 📊 Exploratory Data Analysis (EDA)
 
