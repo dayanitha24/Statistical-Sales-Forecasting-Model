@@ -1,24 +1,31 @@
-# 📈 Time Series Forecasting with R – Ecuador Store Sales
+# 📈 Time Series Forecasting with R  
+### Ecuador Retail Store Sales (2013–2017)
 
-This project focuses on **time series forecasting of retail sales in Ecuador (2013–2017)** using the Kaggle *Store Sales – Time Series Forecasting* dataset.  
-Multiple classical, statistical, and machine learning models are implemented and compared using the **Modeltime** framework in R.
-
----
-
-## 🧠 Objective
-
-- Explore and visualize sales patterns across time, cities, product families, promotions, holidays, and oil prices
-- Perform seasonal decomposition and stationarity testing
-- Build and compare multiple forecasting models
-- Generate future sales forecasts for a specific store
+This project focuses on **time series forecasting of retail sales in Ecuador** using the **Kaggle Store Sales – Time Series Forecasting dataset**.  
+It explores sales behavior over time and compares **classical statistical models and machine learning approaches** using the **Modeltime framework in R**.
 
 ---
 
-## 🛠 Tech Stack
+## 🧠 Project Objectives
+- Explore and visualize sales patterns across:
+  - Time
+  - Cities
+  - Product families
+  - Promotions
+  - Holidays
+  - Oil prices
+- Perform **seasonal decomposition** and **stationarity testing**
+- Build and compare multiple **forecasting models**
+- Generate **future sales forecasts** for a selected store
 
-**Language:** R  
+---
 
-**Libraries Used:**
+## 🛠️ Tech Stack
+
+**Language**
+- R
+
+**Libraries**
 - tidyverse  
 - lubridate  
 - modeltime  
@@ -35,132 +42,134 @@ Multiple classical, statistical, and machine learning models are implemented and
 
 ## 📂 Project Structure
 
-Time-Series-Forecasting-with-R/
+Statistical-Sales-Forecasting-Model/
+│
+├── Code_v1.R # Main analysis and modeling script
+├── README.md
+├── plot_pres.png
+│
 ├── data/
-│ ├── train.csv
-│ ├── test.csv
-│ ├── oil.csv
 │ ├── holidays_events.csv
+│ ├── oil.csv
+│ ├── sample_submission.csv
 │ ├── stores.csv
+│ ├── test.csv
 │ └── transactions.csv
 │
-├── pics/
-│ ├── plot_oil_initial.png
-│ ├── plot1.png
-│ ├── plot_holidays.png
-│ ├── plot_products.png
-│ ├── plot_city1.png
-│ ├── plot_city2.png
-│ ├── plot_oil.png
-│ ├── plot_promotions.png
-│ ├── stl_plot.png
-│ └── final_rf_prediction.png
-│
-├── main.R
-└── README.md
+└── pics/
+├── Average sales.png
+├── Daily Sales by city.png
+├── Daily sales.png
+├── Impact of oil price.png
+├── Influence of promotion on daily sales.png
+├── Time series cross validation plan.png
+├── seasonal decomposition of times series by loss.png
+└── sales.png
 
-yaml
-Copy code
+
+> ⚠️ **Note:**  
+> The training dataset (`train.csv`) is excluded from the repository due to GitHub file size limits.
 
 ---
 
-## 📊 Exploratory Data Analysis
+## 📊 Exploratory Data Analysis (EDA)
 
 The following analyses were performed:
+- Daily sales trend analysis
+- City-wise sales distribution
+- Product family sales comparison
+- Impact of promotions on daily sales
+- Influence of national holidays
+- Relationship between oil prices and sales
 
-- Daily sales trend analysis  
-- Impact of national holidays on sales  
-- Product family–wise sales comparison  
-- City-wise sales distribution  
-- Influence of promotions  
-- Relationship between oil prices and sales  
-
-All plots are automatically saved in the `pics/` directory.
+All visualizations are automatically saved in the `pics/` directory.
 
 ---
 
-## 🔄 Seasonal Decomposition
-
-- STL decomposition applied to aggregated daily sales
+## 🔄 Seasonal Decomposition & Stationarity
+- **STL decomposition** applied to aggregated daily sales
 - Trend, seasonality, and residual components analyzed
-- Augmented Dickey–Fuller (ADF) test used to verify stationarity
+- **Augmented Dickey–Fuller (ADF) test** used to verify stationarity
 
 ---
 
 ## 🤖 Forecasting Models Implemented
 
-Sales forecasting was performed for **Store 51** using the following models:
+Sales forecasting was performed for **Store 51** using:
 
-1. Auto ARIMA  
-2. Prophet  
-3. TBATS  
-4. Seasonal Naïve  
-5. Elastic Net Regression  
-6. Random Forest  
-7. Prophet Boost (Prophet + XGBoost)
+- Seasonal Naïve  
+- Auto ARIMA  
+- TBATS  
+- Prophet  
+- Elastic Net Regression  
+- Random Forest  
+- Prophet Boost (Prophet + XGBoost)  
 
-### Feature Engineering
-- Time series signatures  
-- Fourier terms for multiple seasonal cycles  
-- Dummy encoding of categorical features  
+---
+
+## ⚙️ Feature Engineering
+- Time series signatures
+- Fourier terms for multiple seasonal cycles
+- Dummy encoding of categorical variables
+- Promotion and holiday indicators
 
 ---
 
 ## 📏 Model Evaluation
-
-- Rolling time series cross-validation
-- Performance metrics:
+- Rolling **time series cross-validation**
+- Evaluation metrics:
   - RMSE
   - MAE
   - R²
-- Calibration and evaluation performed using **modeltime**
+- Calibration and performance comparison using **modeltime**
 
 ---
 
 ## 🔮 Final Forecast
-
-- Best-performing model (**Random Forest**) refitted on full dataset
+- Best-performing model: **Random Forest**
+- Refit on the full dataset
 - Generated **3-month future sales forecast**
 - Final visualization saved as:
 
 pics/final_rf_prediction.png
 
-yaml
-Copy code
-
 ---
 
 ## ▶️ How to Run the Project
 
-1. Clone the repository  
+### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/your-username/Time-Series-Forecasting-with-R.git
-Open main.R in RStudio
+git clone https://github.com/dayanitha24/Statistical-Sales-Forecasting-Model.git
+```
+2️⃣ Open the script in RStudio
 
-Set working directory if needed
+Open Code_v1.R
 
-r
-Copy code
-setwd("path/to/project")
-Install required packages (run once)
+3️⃣ Set working directory (if required)
+setwd("path/to/Statistical-Sales-Forecasting-Model")
 
-r
-Copy code
+4️⃣ Install required packages (run once)
 install.packages(c(
-  "tidyverse","lubridate","modeltime","tidymodels","timetk",
-  "tseries","forecast","glmnet","randomForest","prophet"
+  "tidyverse", "lubridate", "modeltime", "timetk",
+  "tidymodels", "forecast", "tseries",
+  "glmnet", "randomForest", "prophet", "xgboost"
 ))
-Run the script from top to bottom
+
+5️⃣ Run the script
+
+Execute the script from top to bottom.
 
 📌 Dataset Source
+
 Kaggle – Store Sales: Time Series Forecasting
 https://www.kaggle.com/competitions/store-sales-time-series-forecasting
 
 ✨ Key Takeaways
-Promotions and holidays significantly influence sales
+
+Promotions and holidays significantly influence retail sales
 
 Oil prices show a measurable relationship with demand
 
 Machine learning models outperform classical methods for short-term forecasting
 
-Feature-engineered Random Forest provided the most stable results
+Feature-engineered Random Forest delivered the most stable results
